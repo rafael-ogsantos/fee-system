@@ -13,3 +13,10 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+Route::group(['prefix' => 'currency'], function () {
+    // Route::resource('/', CurrencyController::class);
+    Route::get('/', 'App\Http\Controllers\CurrencyController@index');
+    Route::post('/convert', 'App\Http\Controllers\CurrencyController@convertCurrency');
+});
+
