@@ -2,8 +2,8 @@
 
 namespace App;
 
-use App\Rates\ConvertedCurrency\ForValueBelow3000;
-use App\Rates\ConvertedCurrency\ForValueLessThan3000;
+use App\Rates\ConvertedCurrency\ForValueBelow2700;
+use App\Rates\ConvertedCurrency\ForValueLessThan4000;
 use App\Rates\ConvertedCurrency\NoFee;
 
 class RateCalculate
@@ -14,8 +14,8 @@ class RateCalculate
      */
     public function calculate(PaymentInformations $paymentInformations): float
     {
-        $rateChain = new ForValueBelow3000(
-            new ForValueLessThan3000(
+        $rateChain = new ForValueBelow2700(
+            new ForValueLessThan4000(
                 new NoFee()
             )
         );

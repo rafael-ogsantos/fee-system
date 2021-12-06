@@ -61,7 +61,7 @@ class Currency
         $paymentInformations = new PaymentInformations();
         $paymentInformations->value =  $value;
 
-        $fees = $rateCalculate->calculate($paymentInformations) / 100;
+        $fees = $rateCalculate->calculate($paymentInformations);
         $this->fees['rateConversion'] = $fees;
         return $fees;
     }
@@ -81,7 +81,7 @@ class Currency
 
         $class = "App\Rates\PaymentsMethods\\$name";
         $paymentInformations->paymentMethod = $class;
-        $fees = $calcula->calcula($paymentInformations, new $class) / 100;
+        $fees = $calcula->calcula($paymentInformations, new $class);
         $this->fees['paymentMethodRate'] = $fees;
         return $fees;
     }

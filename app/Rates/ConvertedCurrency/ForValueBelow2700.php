@@ -4,7 +4,7 @@ namespace App\Rates\ConvertedCurrency;
 
 use App\PaymentInformations;
 
-class ForValueBelow3000 extends Rate
+class ForValueBelow2700 extends Rate
 {
     /**
      * @param PaymentInformations $paymentInformations
@@ -12,8 +12,8 @@ class ForValueBelow3000 extends Rate
      */
     public function calculate(PaymentInformations $paymentInformations): float
     {
-        if($paymentInformations->value > 3000) {
-            return $paymentInformations->value * 1;
+        if($paymentInformations->value < 2700) {
+            return $paymentInformations->value * 2 / 100;
         }
 
         return $this->nextRate->calculate($paymentInformations);
