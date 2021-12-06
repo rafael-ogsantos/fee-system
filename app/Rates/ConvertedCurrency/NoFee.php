@@ -11,6 +11,10 @@ class NoFee extends Rate
         parent::__construct(null);
     }
 
+    /**
+     * @param PaymentInformations $paymentInformations
+     * @return float
+     */
     public function calculate(PaymentInformations $paymentInformations): float
     {
         return 0;

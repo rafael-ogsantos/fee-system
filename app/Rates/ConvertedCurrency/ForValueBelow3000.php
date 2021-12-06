@@ -6,6 +6,10 @@ use App\PaymentInformations;
 
 class ForValueBelow3000 extends Rate
 {
+    /**
+     * @param PaymentInformations $paymentInformations
+     * @return float
+     */
     public function calculate(PaymentInformations $paymentInformations): float
     {
         if($paymentInformations->value > 3000) {
